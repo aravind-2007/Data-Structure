@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j, temp;
+    int arr[50];   // can hold up to 50 numbers
+
+    printf("Enter how many numbers: ");
+    scanf("%d", &n);
+
+    printf("Enter the numbers:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Insertion Sort
+    for(i = 1; i < n; i++) {
+        temp = arr[i];
+        j = i - 1;
+
+        // shift larger elements to the right
+        while(j >= 0 && arr[j] > temp) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j + 1] = temp;
+    }
+
+    printf("Sorted numbers:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
